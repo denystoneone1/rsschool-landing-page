@@ -11,8 +11,9 @@
 	flex-direction: column;
 	gap: 100px;
 	align-items: center;
-	justify-content: center;
-	padding: 60px 40px;
+	justify-content: flex-start;
+	overflow-y: auto;
+	padding: 60px var(--container-padding);
 	background-color: var(--bg-page);
 
 	&[hidden] {
@@ -23,8 +24,9 @@
 		display: none;
 	}
 
-	@include mobile {
-		padding: 60px 16px;
+	@include tablet-only {
+		justify-content: center;
+		justify-content: safe center;
 	}
 
 	&__nav {
