@@ -6,6 +6,15 @@
 		align-items: center;
 		justify-content: center;
 		gap: 100px;
+
+		@include laptop {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		@include mobile {
+			gap: 40px;
+		}
 	}
 
 	&__content {
@@ -15,6 +24,10 @@
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 40px;
+
+		@include laptop {
+			flex: none;
+		}
 	}
 
 	&__title {
@@ -33,7 +46,12 @@
 
 	&__buttons {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 20px;
+
+		@include mobile {
+			flex-direction: column;
+		}
 	}
 
 	&__btn {
@@ -84,5 +102,13 @@
 		height: 630px;
 		flex-shrink: 0;
 		object-fit: cover;
+
+		@include laptop {
+			width: 100%;
+			max-width: 630px;
+			height: auto;
+			aspect-ratio: 1;
+			align-self: center;
+		}
 	}
 }

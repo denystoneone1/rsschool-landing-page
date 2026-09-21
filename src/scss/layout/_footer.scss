@@ -12,6 +12,20 @@
 		padding: 100px;
 		border-radius: 40px;
 		background-color: var(--bg-container);
+
+		@include laptop {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		@include tablet {
+			padding: 100px 60px;
+		}
+
+		@include mobile {
+			gap: 40px;
+			padding: 60px 16px;
+		}
 	}
 
 	&__offer,
@@ -23,6 +37,10 @@
 		align-items: flex-start;
 		justify-content: center;
 		gap: 40px;
+
+		@include laptop {
+			flex: none;
+		}
 	}
 
 	&__title {

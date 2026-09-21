@@ -42,12 +42,16 @@
 			color: var(--text-inverse);
 			background-color: var(--bg-container);
 		}
+
+		@include mobile {
+			display: none;
+		}
 	}
 
 	&__viewport {
 		flex: 1;
+		min-width: 0;
 		max-width: 1152px;
-		min-width: 480px;
 		overflow: hidden;
 	}
 
@@ -63,14 +67,15 @@
 
 	&__content {
 		display: flex;
-		width: 480px;
+		width: 100%;
+		max-width: 480px;
 		flex-direction: column;
 		gap: 20px;
 	}
 
 	&__img {
-		width: 480px;
-		height: 480px;
+		width: 100%;
+		aspect-ratio: 1;
 		object-fit: cover;
 	}
 
