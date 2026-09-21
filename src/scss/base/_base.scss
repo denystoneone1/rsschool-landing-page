@@ -11,6 +11,16 @@ body {
 		background-color var(--transition-theme);
 }
 
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+.text-accent {
+	font-weight: var(--fw-semibold);
+	color: var(--text-accent, #b0907a);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
