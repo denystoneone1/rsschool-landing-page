@@ -21,6 +21,10 @@ body {
 	color: var(--text-accent, #b0907a);
 }
 
+.text-accent--italic {
+	font-style: italic;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
