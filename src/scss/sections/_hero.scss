@@ -68,6 +68,12 @@
 		font-size: var(--fs-action);
 		font-weight: var(--fw-semibold);
 		line-height: var(--lh-action);
+
+		@include tablet {
+			display: inline-flex;
+			gap: 8px;
+			align-items: center;
+		}
 	}
 
 	&__btn-icon {
@@ -79,5 +85,12 @@
 		transition:
 			opacity var(--transition-fast),
 			transform var(--transition-fast);
+
+		@include tablet {
+			position: static;
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
 	}
 }
