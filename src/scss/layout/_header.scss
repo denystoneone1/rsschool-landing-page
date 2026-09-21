@@ -82,6 +82,10 @@
 				transform: scaleX(1);
 			}
 		}
+
+		&[aria-current='page']::after {
+			transform: scaleX(1);
+		}
 	}
 
 	&__actions {
