@@ -8,6 +8,8 @@
 	/* Layout */
 	--container-max: 1440px;
 	--container-padding: 40px;
+	--block-padding-y: 100px;
+	--block-padding-x: 100px;
 
 	/* Motion */
 	--transition-fast: 0.2s ease;
@@ -43,8 +45,21 @@
 	--border-primary: #c1b6ad;
 	--border-inverse: #665f55;
 
-	/* Typography - Mobile.*/
+	/* Layout & Typography - Tablet. */
+	@include tablet-only {
+		--tablet-progress: calc((100vw - 425px) / 343);
+		--container-padding: clamp(16px, 16px + 24 * var(--tablet-progress), 40px);
+		--block-padding-y: clamp(60px, 60px + 40 * var(--tablet-progress), 100px);
+		--block-padding-x: clamp(16px, 16px + 44 * var(--tablet-progress), 60px);
+		--fs-heading-1: clamp(42px, 42px + 30 * var(--tablet-progress), 72px);
+		--fs-heading-2: clamp(32px, 32px + 28 * var(--tablet-progress), 60px);
+	}
+
+	/* Layout & Typography - Mobile.*/
 	@include mobile {
+		--container-padding: 16px;
+		--block-padding-y: 60px;
+		--block-padding-x: 16px;
 		--fs-heading-1: 42px;
 		--lh-heading-1: 1.15;
 		--fs-heading-2: 32px;

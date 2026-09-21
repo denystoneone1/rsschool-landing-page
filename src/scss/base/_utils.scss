@@ -1,14 +1,8 @@
-@use '../abstracts/mixins' as *;
-
 .container {
 	width: 100%;
 	max-width: var(--container-max);
 	margin: 0 auto;
 	padding: 0 var(--container-padding);
-
-	@include mobile {
-		--container-padding: 16px;
-	}
 }
 
 .visually-hidden {

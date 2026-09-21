@@ -9,7 +9,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 100px;
-		padding: 100px;
+		padding: var(--block-padding-y) var(--block-padding-x);
 		border-radius: 40px;
 		background-color: var(--bg-container);
 
@@ -18,13 +18,8 @@
 			align-items: stretch;
 		}
 
-		@include tablet {
-			padding: 100px 60px;
-		}
-
 		@include mobile {
 			gap: 40px;
-			padding: 60px 16px;
 		}
 	}
 
