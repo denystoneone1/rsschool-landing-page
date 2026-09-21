@@ -1,12 +1,12 @@
 # Coffee House
 
-Лендинг для RS School — [Landing Page, часть 1](https://github.com/rolling-scopes-school/tasks/blob/master/fullstack-engineering/tasks/landing-page/README-part-1.md).
+Лендинг для RS School: [Landing Page, часть 1](https://github.com/rolling-scopes-school/tasks/blob/master/fullstack-engineering/tasks/landing-page/README-part-1.md).
 
-**Деплой:** _(ссылка появится после публикации)_
+**Деплой:** https://denystoneone1.github.io/rsschool-landing-page/
 
 ## Стек
 
-Чистые HTML, SCSS и JavaScript без фреймворков. Сборка — Vite, нормализация стилей — modern-normalize.
+Чистые HTML, SCSS и JavaScript без фреймворков. Сборка: Vite. Нормализация стилей: modern-normalize.
 
 ## Запуск
 
