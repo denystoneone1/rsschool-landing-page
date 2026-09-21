@@ -1,6 +1,4 @@
 // Переключение светлой и тёмной темы.
-//
-// Ожидаемая разметка: <button type="button" data-theme-toggle aria-pressed="false">
 // Кнопок может быть несколько (например, в шапке и в бургер-меню) — все
 // синхронизируются между собой.
 //
@@ -13,7 +11,9 @@ const LIGHT = 'light'
 
 function readStoredTheme() {
 	try {
-		return localStorage.getItem(STORAGE_KEY)
+		const stored = localStorage.getItem(STORAGE_KEY)
+
+		return stored === DARK || stored === LIGHT ? stored : null
 	} catch {
 		return null
 	}
@@ -29,24 +29,27 @@ function getCurrentTheme() {
 	return document.documentElement.dataset.theme === DARK ? DARK : LIGHT
 }
 
-function applyTheme(theme, toggles) {
+function applyTheme(theme, buttons) {
 	document.documentElement.dataset.theme = theme
 
-	toggles.forEach(toggle => {
-		toggle.setAttribute('aria-pressed', String(theme === DARK))
+	buttons.forEach(button => {
+		const isActive = button.dataset.themeValue === theme
+
+		button.setAttribute('aria-pressed', String(isActive))
+		button.classList.toggle('theme-switch__btn--active', isActive)
 	})
 }
 
 export function initTheme() {
-	const toggles = document.querySelectorAll('[data-theme-toggle]')
+	const buttons = document.querySelectorAll('[data-theme-value]')
 
-	applyTheme(readStoredTheme() ?? getCurrentTheme(), toggles)
+	applyTheme(readStoredTheme() ?? getCurrentTheme(), buttons)
 
-	toggles.forEach(toggle => {
-		toggle.addEventListener('click', () => {
-			const nextTheme = getCurrentTheme() === DARK ? LIGHT : DARK
+	buttons.forEach(button => {
+		button.addEventListener('click', () => {
+			const nextTheme = button.dataset.themeValue
 
-			applyTheme(nextTheme, toggles)
+			applyTheme(nextTheme, buttons)
 			saveTheme(nextTheme)
 		})
 	})

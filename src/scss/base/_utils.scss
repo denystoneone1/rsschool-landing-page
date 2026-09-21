@@ -6,10 +6,6 @@
 	margin: 0 auto;
 	padding: 0 var(--container-padding);
 
-	@include tablet {
-		--container-padding: 24px;
-	}
-
 	@include mobile {
 		--container-padding: 16px;
 	}
