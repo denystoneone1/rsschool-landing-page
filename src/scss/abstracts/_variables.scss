@@ -1,0 +1,63 @@
+@use 'mixins' as *;
+
+:root {
+	--font-main:
+		'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, sans-serif;
+
+	/* Layout */
+	--container-max: 1440px;
+	--container-padding: 40px;
+
+	/* Motion */
+	--transition-fast: 0.2s ease;
+	--transition-theme: 0.3s ease;
+
+	/* Typography - вес */
+	--fw-regular: 400;
+	--fw-semibold: 600;
+
+	/* Typography - Desktop */
+	--fs-heading-1: 72px;
+	--lh-heading-1: 1.05;
+	--fs-heading-2: 60px;
+	--lh-heading-2: 1.25;
+	--fs-heading-3: 24px;
+	--lh-heading-3: 1.25;
+	--fs-body: 16px;
+	--lh-body: 1.5;
+	--fs-caption: 10px;
+	--lh-caption: 1.4;
+	--fs-action: 16px;
+	--lh-action: 1.5;
+	--fs-burger-link: 32px;
+	--lh-burger-link: 1.25;
+
+	/* Colors - Light */
+	--text-primary: #403f3d;
+	--text-inverse: #e1d4c9;
+	--text-accent: #b0907a;
+	--bg-page: #e1d4c9;
+	--bg-container: #665f55;
+	--bg-overlay: #403f3dcc;
+	--border-primary: #c1b6ad;
+	--border-inverse: #665f55;
+
+	/* Typography - Mobile.*/
+	@include mobile {
+		--fs-heading-1: 42px;
+		--lh-heading-1: 1.15;
+		--fs-heading-2: 32px;
+		--lh-heading-2: 1.25;
+	}
+}
+
+[data-theme='dark'] {
+	/* Colors - Dark. */
+	--text-primary: #e1d4c9;
+	--bg-page: #292826;
+	--bg-container: #403f3d;
+	--bg-overlay: #292826cc;
+	--border-primary: #665f55;
+	--border-inverse: #c1b6ad;
+}

@@ -1,0 +1,26 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-main);
+	color: var(--text-primary);
+	background-color: var(--bg-page);
+	transition:
+		color var(--transition-theme),
+		background-color var(--transition-theme);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
