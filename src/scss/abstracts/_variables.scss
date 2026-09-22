@@ -12,8 +12,10 @@
 	--block-padding-x: 100px;
 
 	/* Motion */
-	--transition-fast: 0.2s ease;
-	--transition-theme: 0.3s ease;
+	--ease-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+	--transition-fast: 0.25s var(--ease-smooth);
+	--transition-theme: 0.3s var(--ease-smooth);
+	--transition-image: 0.5s var(--ease-smooth);
 
 	/* Typography - вес */
 	--fw-regular: 400;
