@@ -1,0 +1,121 @@
+@use '../abstracts/mixins' as *;
+
+.slider {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+	}
+
+	&__title {
+		color: var(--text-primary);
+		font-size: var(--fs-heading-2);
+		font-weight: var(--fw-semibold);
+		line-height: var(--lh-heading-2);
+		text-align: center;
+	}
+
+	&__wrapper {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		gap: 40px;
+	}
+
+	&__btn {
+		display: flex;
+		width: 60px;
+		height: 60px;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		border-radius: 100px;
+		box-shadow: inset 0 0 0 1px var(--border-inverse);
+		color: var(--text-primary);
+		transition:
+			color var(--transition-fast),
+			background-color var(--transition-fast),
+			box-shadow var(--transition-fast);
+
+		@include hover {
+			color: var(--text-inverse);
+			background-color: var(--bg-container);
+			box-shadow: none;
+		}
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&__viewport {
+		flex: 1;
+		min-width: 0;
+		max-width: 1152px;
+		overflow: hidden;
+	}
+
+	&__track {
+		display: flex;
+	}
+
+	&__slide {
+		display: flex;
+		flex: 0 0 100%;
+		justify-content: center;
+	}
+
+	&__content {
+		display: flex;
+		width: 100%;
+		max-width: 480px;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	&__img {
+		width: 100%;
+		aspect-ratio: 1;
+		object-fit: cover;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+		text-align: center;
+	}
+
+	&__subtitle,
+	&__price {
+		font-size: var(--fs-heading-3);
+		font-weight: var(--fw-semibold);
+		line-height: var(--lh-heading-3);
+	}
+
+	&__description {
+		font-size: var(--fs-body);
+		font-weight: var(--fw-regular);
+		line-height: var(--lh-body);
+	}
+
+	&__control {
+		display: flex;
+		gap: 12px;
+	}
+
+	&__dot {
+		width: 40px;
+		height: 4px;
+		border-radius: 100px;
+		background-color: var(--border-primary);
+		transition: background-color var(--transition-fast);
+	}
+
+	&__dot--active {
+		background-color: var(--border-inverse);
+	}
+}
