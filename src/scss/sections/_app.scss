@@ -65,11 +65,13 @@
 		color: var(--text-primary);
 		transition:
 			color var(--transition-fast),
-			background-color var(--transition-fast);
+			background-color var(--transition-fast),
+			box-shadow var(--transition-fast);
 
 		@include hover {
 			color: var(--text-inverse);
 			background-color: var(--bg-container);
+			box-shadow: none;
 		}
 	}
 
