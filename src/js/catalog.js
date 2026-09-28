@@ -1,7 +1,7 @@
 import { formatPrice, getImageUrl, getProducts } from './products.js'
 
 const EXPANDED_CLASS = 'menu__grid--expanded'
-const DEFAULT_CATEGORY = 'coffee'
+const TAB_ACTIVE_CLASS = 'menu__tab--active'
 
 function createCard(template, product) {
 	const item = template.content.firstElementChild.cloneNode(true)
@@ -24,14 +24,37 @@ function renderCards(grid, template, category) {
 	)
 }
 
+function setActiveTab(tabs, activeTab) {
+	tabs.forEach(tab => {
+		const isActive = tab === activeTab
+
+		tab.classList.toggle(TAB_ACTIVE_CLASS, isActive)
+		tab.setAttribute('aria-pressed', String(isActive))
+	})
+}
+
 export function initCatalog() {
 	const grid = document.querySelector('.menu__grid')
 	const template = document.getElementById('menu-card-template')
+	const tabs = [...document.querySelectorAll('.menu__tab[data-category]')]
 	const more = document.querySelector('.menu__more')
 
-	if (!grid || !template || !more) return
+	if (!grid || !template || !tabs.length || !more) return
 
-	renderCards(grid, template, DEFAULT_CATEGORY)
+	const showCategory = tab => {
+		setActiveTab(tabs, tab)
+		renderCards(grid, template, tab.dataset.category)
+		grid.classList.remove(EXPANDED_CLASS)
+		more.hidden = false
+	}
+
+	showCategory(tabs[0])
+
+	tabs.forEach(tab => {
+		tab.addEventListener('click', () => {
+			if (!tab.classList.contains(TAB_ACTIVE_CLASS)) showCategory(tab)
+		})
+	})
 
 	more.addEventListener('click', () => {
 		grid.classList.add(EXPANDED_CLASS)
