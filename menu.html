@@ -268,7 +268,7 @@
 					<ul class="menu__grid"></ul>
 					<template id="menu-card-template">
 						<li class="menu__item">
-							<article class="menu-card">
+							<article class="menu-card" tabindex="0" aria-haspopup="dialog">
 								<div class="menu-card__box">
 									<img class="menu-card__img" alt="" width="340" height="340">
 								</div>
@@ -495,6 +495,55 @@
 				</div>
 			</div>
 		</footer>
+		<dialog class="product-modal" aria-labelledby="product-modal-name">
+			<div class="product-modal__inner">
+				<div class="product-modal__box">
+					<img class="product-modal__img" alt="" width="310" height="310">
+				</div>
+				<div class="product-modal__content">
+					<div class="product-modal__title">
+						<h2 class="product-modal__name" id="product-modal-name"></h2>
+						<p class="product-modal__text"></p>
+					</div>
+					<p class="product-modal__total">
+						<span>Total:</span>
+						<span class="product-modal__price"></span>
+					</p>
+					<div class="product-modal__note">
+						<svg
+							class="product-modal__note-icon"
+							width="16"
+							height="16"
+							viewBox="0 0 16 16"
+							fill="none"
+							aria-hidden="true"
+						>
+							<g clip-path="url(#product-modal-info-clip)">
+								<path
+									d="M8 7.66667V11M8 5.00667L8.00667 4.99926M8 14.6667C11.6819 14.6667 14.6667 11.6819 14.6667 8C14.6667 4.3181 11.6819 1.33333 8 1.33333C4.3181 1.33333 1.33333 4.3181 1.33333 8C1.33333 11.6819 4.3181 14.6667 8 14.6667Z"
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</g>
+							<defs>
+								<clipPath id="product-modal-info-clip">
+									<rect width="16" height="16" fill="white" />
+								</clipPath>
+							</defs>
+						</svg>
+						<p>
+							The cost is not final. Download our mobile app to see the final
+							price and place your order. Earn loyalty points and enjoy your
+							favorite coffee with up to 20% discount.
+						</p>
+					</div>
+					<button class="product-modal__close" type="button" data-modal-close>
+						Close
+					</button>
+				</div>
+			</div>
+		</dialog>
 		<script type="module" src="/src/js/menu.js"></script>
 	</body>
 </html>

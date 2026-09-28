@@ -1,11 +1,13 @@
 import { formatPrice, getImageUrl, getProducts } from './products.js'
+import { createProductModal } from './product-modal.js'
 
 const EXPANDED_CLASS = 'menu__grid--expanded'
 const TAB_ACTIVE_CLASS = 'menu__tab--active'
 const INITIAL_COUNT_TABLET = 4
 
-function createCard(template, product) {
+function createCard(template, product, onSelect) {
 	const item = template.content.firstElementChild.cloneNode(true)
+	const card = item.querySelector('.menu-card')
 	const img = item.querySelector('.menu-card__img')
 
 	img.src = getImageUrl(product)
@@ -16,14 +18,22 @@ function createCard(template, product) {
 		product.price,
 	)
 
+	card.addEventListener('click', () => onSelect(product))
+	card.addEventListener('keydown', event => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault()
+			onSelect(product)
+		}
+	})
+
 	return item
 }
 
-function renderCards(grid, template, category) {
+function renderCards(grid, template, category, onSelect) {
 	const products = getProducts(category)
 
 	grid.replaceChildren(
-		...products.map(product => createCard(template, product)),
+		...products.map(product => createCard(template, product, onSelect)),
 	)
 
 	return products.length
@@ -46,9 +56,17 @@ export function initCatalog() {
 
 	if (!grid || !template || !tabs.length || !more) return
 
+	const modal = createProductModal()
+	const openProduct = product => modal?.open(product)
+
 	const showCategory = tab => {
 		setActiveTab(tabs, tab)
-		const count = renderCards(grid, template, tab.dataset.category)
+		const count = renderCards(
+			grid,
+			template,
+			tab.dataset.category,
+			openProduct,
+		)
 
 		grid.classList.remove(EXPANDED_CLASS)
 		more.hidden = count <= INITIAL_COUNT_TABLET
