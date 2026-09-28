@@ -21,9 +21,13 @@ function createOption(template, { type, name, value, key, label }) {
 
 export function createProductModal() {
 	const dialog = document.querySelector('.product-modal')
+	const modalTemplate = document.getElementById('product-modal-template')
 	const optionTemplate = document.getElementById('product-option-template')
 
-	if (!dialog || !optionTemplate) return null
+	if (!dialog || !modalTemplate || !optionTemplate) return null
+
+	dialog.append(modalTemplate.content.cloneNode(true))
+	dialog.setAttribute('aria-labelledby', 'product-modal-name')
 
 	const img = dialog.querySelector('.product-modal__img')
 	const name = dialog.querySelector('.product-modal__name')
