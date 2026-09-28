@@ -2,6 +2,7 @@ import { formatPrice, getImageUrl, getProducts } from './products.js'
 
 const EXPANDED_CLASS = 'menu__grid--expanded'
 const TAB_ACTIVE_CLASS = 'menu__tab--active'
+const INITIAL_COUNT_TABLET = 4
 
 function createCard(template, product) {
 	const item = template.content.firstElementChild.cloneNode(true)
@@ -19,9 +20,13 @@ function createCard(template, product) {
 }
 
 function renderCards(grid, template, category) {
+	const products = getProducts(category)
+
 	grid.replaceChildren(
-		...getProducts(category).map(product => createCard(template, product)),
+		...products.map(product => createCard(template, product)),
 	)
+
+	return products.length
 }
 
 function setActiveTab(tabs, activeTab) {
@@ -43,9 +48,10 @@ export function initCatalog() {
 
 	const showCategory = tab => {
 		setActiveTab(tabs, tab)
-		renderCards(grid, template, tab.dataset.category)
+		const count = renderCards(grid, template, tab.dataset.category)
+
 		grid.classList.remove(EXPANDED_CLASS)
-		more.hidden = false
+		more.hidden = count <= INITIAL_COUNT_TABLET
 	}
 
 	showCategory(tabs[0])
