@@ -2,6 +2,7 @@
 
 .hero {
 	&__inner {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -11,9 +12,24 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
+		overflow: hidden;
+	}
+
+	&__video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		pointer-events: none;
+
+		@media (prefers-reduced-motion: reduce) {
+			display: none;
+		}
 	}
 
 	&__content {
+		position: relative;
 		max-width: 530px;
 		display: flex;
 		flex-direction: column;

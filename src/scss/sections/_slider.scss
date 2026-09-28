@@ -55,10 +55,18 @@
 		min-width: 0;
 		max-width: 1152px;
 		overflow: hidden;
+		touch-action: pan-y;
 	}
 
 	&__track {
+		--slider-gap: 40px;
+
 		display: flex;
+		gap: var(--slider-gap);
+		transform: translateX(
+			calc(var(--slide-index, 0) * (-100% - var(--slider-gap)))
+		);
+		transition: transform var(--transition-image);
 	}
 
 	&__slide {
@@ -79,6 +87,8 @@
 		width: 100%;
 		aspect-ratio: 1;
 		object-fit: cover;
+		-webkit-user-drag: none;
+		user-select: none;
 	}
 
 	&__text {
