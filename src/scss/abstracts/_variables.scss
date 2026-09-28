@@ -44,8 +44,11 @@
 	--bg-page: #e1d4c9;
 	--bg-container: #665f55;
 	--bg-overlay: #403f3dcc;
+	--bg-modal: #e1d4c9;
+	--bg-modal-control: #665f55;
 	--border-primary: #c1b6ad;
 	--border-inverse: #665f55;
+	--border-control: #665f55;
 
 	/* Layout & Typography - Tablet. */
 	@include tablet-only {
@@ -75,6 +78,8 @@
 	--bg-page: #292826;
 	--bg-container: #403f3d;
 	--bg-overlay: #292826cc;
+	--bg-modal: #403f3d;
+	--bg-modal-control: #292826;
 	--border-primary: #665f55;
 	--border-inverse: #c1b6ad;
 }

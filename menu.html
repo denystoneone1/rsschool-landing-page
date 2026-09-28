@@ -505,6 +505,14 @@
 						<h2 class="product-modal__name" id="product-modal-name"></h2>
 						<p class="product-modal__text"></p>
 					</div>
+					<fieldset class="product-modal__group">
+						<legend class="product-modal__label">Size</legend>
+						<div class="product-modal__options" data-modal-sizes></div>
+					</fieldset>
+					<fieldset class="product-modal__group">
+						<legend class="product-modal__label">Additives</legend>
+						<div class="product-modal__options" data-modal-additives></div>
+					</fieldset>
 					<p class="product-modal__total">
 						<span>Total:</span>
 						<span class="product-modal__price"></span>
@@ -544,6 +552,13 @@
 				</div>
 			</div>
 		</dialog>
+		<template id="product-option-template">
+			<label class="product-modal__option">
+				<input class="product-modal__input visually-hidden">
+				<span class="product-modal__option-key" aria-hidden="true"></span>
+				<span class="product-modal__option-value"></span>
+			</label>
+		</template>
 		<script type="module" src="/src/js/menu.js"></script>
 	</body>
 </html>
